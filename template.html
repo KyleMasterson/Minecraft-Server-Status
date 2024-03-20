@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .head-box {
+          background-color: #444;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 75%;
+        }
+        .image-list {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          padding: 0;
+          list-style: none;
+          flex-wrap: wrap;
+        }
+        .image-list-item {
+          margin-bottom: 20px;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .image-list-item img {
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+        }
+        .offline img {
+          filter: grayscale(100%);
+        }
+        .status { 
+          color: __STATUS_COLOUR__;
+        }
+        .head-box h4 {
+          color: #aaa;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+        }
+        .online img::before {
+          content: var(--url);
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        .online img:hover::before {
+          opacity: 1;
+        }
+
+        .online img:hover {
+          content: var(--url);
+          height: 140px;
+          width: 60px;
+        }
+
+        .online img::after {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          left: 50%;
+          transform: translateX(-50%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        footer a {
+          color: #FFA500;
+          opacity: __SHOW_FOOTER__;
+        }
+    </style>
+</head>
+<body>
+    <h1>Server is <span class="status">__STATUS__</span></h1>
+    <div class="head-box">
+      <h4>Online (__ONLINE_COUNT__)</h4>
+      <ul class="image-list">
+          __ONLINE_USERS__
+      </ul>
+    </div>
+    <div class="head-box">
+      <h4>Offline (__OFFLINE_COUNT__)</h4>
+      <ul class="image-list">
+        __OFFLINE_USERS__
+      </ul>
+    </div>
+    <footer>
+      <a href="https://mcstatus.io/status/java/__DOMAIN__">Click here to start the server!</a>
+    </footer>
+  </body>
+</html>
